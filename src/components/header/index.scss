@@ -1,0 +1,20 @@
+@import '../../styles/var';
+#{component(header)} {
+  &-wrapper {
+    line-height: .88rem;
+    color: $light-color;
+    background: #fff;
+    position: relative;
+    border-top: 1px solid $gray;
+  }
+  &-left{
+    position: absolute;
+    top: 0;
+    left: 3%;
+    font-size: .36rem;
+  }
+  &-center {
+    font-size: .32rem;
+    text-align: center;
+  }
+}

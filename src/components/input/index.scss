@@ -1,0 +1,154 @@
+@import 'var';
+%padding {
+  padding: 4px 8px;
+}
+
+#{component(input)} {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  @extend %padding;
+  font-size: $input-font-size;
+  height: 32px;
+  line-height: 32px;
+  background-color: #fff;
+  border: 1px solid $input-border-color;
+  border-radius: $border-radius;
+  transition: all 0.3s;
+  &:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  &:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  &:hover {
+    border-color: $input-border-color-hover;
+  }
+  &:focus {
+    outline: none;
+    border-color: $light-color;
+    box-shadow: inset 0 1px 2px rgba(0, 15, 26, 0.3);
+  }
+  &:disabled {
+    background: darken($gray, 10%);
+    color: $light-color;
+    cursor: not-allowed;
+  }
+  &-label {
+    height: 32px;
+    line-height: 32px;
+  }
+  &-small {
+    #{component(input)} {
+      &,
+      &-add-on-before,
+      &-add-on-after,
+      &-label {
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+      }
+    }
+  }
+  &-big {
+    #{component(input)} {
+      &,
+      &-add-on-before,
+      &-add-on-after,
+      &-label {
+        height: 48px;
+        line-height: 48px;
+        font-size: 20px;
+      }
+    }
+  }
+  &-wrapper {
+    display: flex;
+  }
+  &-label-top {
+    flex-direction: column;
+    .am-input-label {
+      margin-bottom: 8px;
+    }
+  }
+  &-label-left {
+    flex-direction: row;
+    .am-input-label {
+      margin-right: 8px;
+    }
+  }
+  &-inputAndError {
+    flex: 1;
+    #{component(input)} {
+      &-error {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 32px;
+        color: $error-color;
+        &-bottom {
+          width: 100%;
+          display: block;
+        }
+        &-right {
+          margin-left: 0.5em;
+        }
+      }
+      &-content {
+        display: inline-block;
+        vertical-align: top;
+      }
+      &-add-on-before,
+      &-add-on-after {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: top;
+        @extend %padding;
+        font-size: 14px;
+        height: 32px;
+        line-height: 32px;
+        background-color: #fff;
+        border: 1px solid $input-border-color;
+      }
+      &-add-on-before {
+        border-right: none;
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+      }
+      &-add-on-after {
+        border-left: none;
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
+    }
+  }
+
+  &-before-or-after{
+    position: relative;
+    #{component(input)} {
+      border-radius: $border-radius;
+      &:not(:first-child) {
+        padding-left: 30px;
+      }
+      &:not(:last-child) {
+        padding-right: 30px;
+      }
+      &-before,&-after{
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        color: #bbb;
+        transform: translateY(-50%);
+      }
+      &-before{
+        left: 10px;
+      }
+      &-after{
+        right: 10px;
+      }
+    }
+  }
+
+}

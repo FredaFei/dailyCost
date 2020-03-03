@@ -1,0 +1,20 @@
+@import 'var';
+#{component(footer)} {
+  &-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+  }
+  &-nav-item {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    padding: .1rem 0;
+    color: $light-color;
+    &.active {color: $active-color;}
+    .icon{font-size: .4rem;}
+    .text {font-size: .28rem;}
+  }
+}

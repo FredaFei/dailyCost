@@ -1,0 +1,19 @@
+@import 'var';
+#{componentWithout(helpCenter)} {
+  &-content{
+    margin-top: .2rem;
+  }
+  &-section{
+    margin-bottom: .2rem;
+  }
+}
+#{componentWithout(helpCenterDetail)} {
+  &-content {}
+  &-inner{
+    margin-top: .2rem;
+    p{
+      font-size: .26rem;
+      font-weight: normal;
+    }
+  }
+}

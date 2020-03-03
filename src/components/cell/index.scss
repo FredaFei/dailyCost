@@ -1,0 +1,16 @@
+@import '../../styles/var';
+#{component(cell)} {
+  &-wrapper {
+    padding: .24rem;
+    color: $light-color;
+    font-size: .28rem;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &+.m-component-cell-wrapper{border-top: 1px solid $gray;}
+  }
+  &-label{
+    padding-left: .1rem;
+  }
+}
