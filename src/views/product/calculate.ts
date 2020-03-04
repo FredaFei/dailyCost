@@ -81,6 +81,10 @@ export default function (options: State, cellName: string) {
     }
     return {};
   }
+
+  if (!options.next && !options.total) {
+    return {};
+  }
   // The user hasn't typed a number yet, just save the operation
   if (!options.next) {
     return {operation: cellName};
