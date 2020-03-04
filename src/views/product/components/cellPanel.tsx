@@ -15,7 +15,7 @@ const calculateMap = [
   {name: 'AC', className: ''},
   {name: '+/-', className: ''},
   {name: '%', className: ''},
-  {name: 'C', className: 'gray'},
+  {name: 'CE', className: 'gray'},
   {name: '7', className: ''},
   {name: '8', className: ''},
   {name: '9', className: ''},

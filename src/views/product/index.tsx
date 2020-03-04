@@ -29,8 +29,8 @@ const Gold: React.FunctionComponent<Props> = props => {
     setData(prevDataRef.current);
   };
   const xx = () => {
-    if (data.next && data.operation) {
-      return `${data.total}${data.operation}${data.next}`;
+    if (data.total && data.operation) {
+      return `${data.total}${data.operation}${data.next || ''}`;
     }
     return data.next || data.total || '0';
   };
