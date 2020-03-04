@@ -20,7 +20,7 @@ export interface State {
   operation: string | null
 }
 
-const defaultState = {total: null, next: null, operation: null};
+export const defaultState = {total: null, next: null, operation: null};
 const Gold: React.FunctionComponent<Props> = props => {
   const [data, setData] = useState<State>(defaultState);
   const prevDataRef = useRef<State>(defaultState);
