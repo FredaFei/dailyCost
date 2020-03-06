@@ -13,14 +13,17 @@ export default function (options: State, cellName: string) {
       if (options.next) {
         console.log('second number concat ----');
         console.log({next: options.next + cellName});
-        return {next: options.next + cellName};
+        const next = options.next === '0' && cellName === '0' ? cellName :
+          options.next === '0' && cellName !== '.' ? cellName : options.next + cellName;
+        return {next};
       }
       console.log('second number  ----');
       console.log({next: cellName});
       return {next: cellName};
     }
     if (options.next) {
-      const next = options.next === '0' ? cellName : options.next + cellName;
+      const next = options.next === '0' && cellName === '0' ? cellName :
+        options.next === '0' && cellName !== '.' ? cellName : options.next + cellName;
       console.log('first number concat ----');
       console.log({next, total: null});
       return {next, total: null};
@@ -32,22 +35,25 @@ export default function (options: State, cellName: string) {
   if (cellName === 'CE') {
     if (options.next) {
       console.log('next step del ----');
-      console.log({next: options.next.substring(0, options.next.length - 1)});
-      return {next: options.next.substring(0, options.next.length - 1)};
+      console.log({next: options.next.length === 1 ? null : options.next.substring(0, options.next.length - 1)});
+
+      return {next: options.next.length === 1 ? null : options.next.substring(0, options.next.length - 1)};
     }
     if (options.total) {
       if (options.operation) {
         console.log('operation del ----');
-        console.log({next: options.total, operation: null,total: null});
-        return {next: options.total, operation: null,total: null};
+        console.log({next: options.total, operation: null, total: null});
+        return {next: options.total, operation: null, total: null};
       }
-      return {total: options.total.substring(0, options.total.length - 1)};
+      return {total: options.total.length === 1 ? null : options.total.substring(0, options.total.length - 1)};
     }
     return {};
   }
   if (cellName === '.') {
     if (options.next) {
-      if (options.next.includes('.')) {return {};}
+      console.log('include .');
+      console.log(options.next.includes('.'));
+      if (options.next.includes('.')) {return {next: options.next};}
       return {next: options.next + '.'};
     }
     return {next: '0.'};
@@ -63,6 +69,9 @@ export default function (options: State, cellName: string) {
     }
     if (options.next) {
       return {next: Big(options.next).div(Big('100')).toString()};
+    }
+    if (options.total) {
+      return {total: Big(options.total).div(Big('100')).toString()};
     }
     return {};
   }
