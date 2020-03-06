@@ -10,8 +10,6 @@ declare module '*.svg' {
   export default content;
 }
 
-declare module '@loadable/component';
-
 declare global {
   interface StyledProps {
     className?: string
