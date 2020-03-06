@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calculate Button 存在 1`] = `
+<button
+  className="m-component-button-wrapper "
+  data-role="Button"
+  onClick={[Function]}
+>
+  <span
+    className="m-component-button-content"
+  >
+    hello
+  </span>
+</button>
+`;
