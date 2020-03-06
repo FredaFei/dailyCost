@@ -15,10 +15,10 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       '@': utils.resolve('../src'),
-      'styles': utils.resolve('../src/styles'),
-      'utils': utils.resolve('../src/utils'),
-      'views': utils.resolve('../src/views'),
-      'components': utils.resolve('../src/components'),
+      styles: utils.resolve('../src/styles'),
+      utils: utils.resolve('../src/utils'),
+      views: utils.resolve('../src/views'),
+      components: utils.resolve('../src/components'),
     }
   },
   optimization: {
