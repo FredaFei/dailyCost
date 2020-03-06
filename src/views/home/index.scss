@@ -1,53 +1,7 @@
 @import 'var';
-#{componentWithout(member)} {
-  &-wrapper {
-    padding-bottom: 1rem;
-  }
-  &-avatar {background: $active-color;position: relative;}
-  &-base-info{
-    position: absolute;
-    top: 4%;
-    left: 4%;
-    color: #ffffff;
-    img{width: 1rem;height: 1rem;border-radius: 50%;}
-    .phone{font-size: .26rem;padding: 0 .1rem;}
-  }
-  &-top {
-    padding: .8rem 0 1.3rem;
-    color: #ffffff;
-    text-align: center;
-    .label {font-size: .32rem;}
-    .total-assets {font-size: .68rem;font-weight: 700;}
-  }
-  &-banner {
-    position: relative;
-    .half {
-      flex: 1;
-      text-align: left;
-      .balance {font-size: .4rem;font-weight: 700;color: $active-color;}
-      .label {font-size: .24rem;color: #aaa;}
-      & + .half {font-size: .3rem;color: $active-color;
-        text-align: right;}
-    }
-  }
-  &-button {
-    width: 90%;
-    padding: .1rem .4rem;
-    box-shadow: 0 2px 10px 0 rgba(249, 89, 89, 0.21);
-    border-radius: .8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  &-content {
-    margin-top: .2rem;
-  }
-  &-section {
-    margin-bottom: .2rem;
+#{componentWithout(home)} {
+  &-page{}
+  &-main{
+
   }
 }
