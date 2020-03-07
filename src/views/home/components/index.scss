@@ -1,0 +1,35 @@
+@import 'var';
+
+#{componentWithout(cost-item)} {
+  &-top {
+    font-size: .24rem;
+    color: #999;
+    padding: .14rem .2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+
+  &-body {
+    padding: 0 .2rem;
+  }
+  &-record {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-record-left {
+    flex: 0 0 10%;
+  }
+  &-record-right {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .28rem;
+    & + &-record-right {
+      border-top: 1px solid #ddd;
+    }
+  }
+}
