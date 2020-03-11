@@ -3,8 +3,10 @@ import { createScopedClasses } from 'utils/classnames';
 import { RouteComponentProps } from 'react-router';
 import CostList from './components/costList';
 import { CostItemProps } from './components/costItem';
+import DatePicker from '@/components/datePicker';
 
 import './index.scss';
+import { useState } from 'react';
 
 const componentName = 'Home';
 const sc = createScopedClasses(componentName);
@@ -36,7 +38,16 @@ const mockData: Array<CostItemProps> = [
   }
 ];
 
-const Header: React.FunctionComponent = props => {
+interface HeaderProps {
+  onClick?: () => void
+  children?: React.ReactNode
+}
+
+const Header: React.FunctionComponent<HeaderProps> = props => {
+  const onClick = () => {
+    console.log('header click');
+    props.onClick && props.onClick();
+  };
   return <div className={sc('header')}>
     <div className={sc('attrs')}>
       <div className={sc('left', 'name')}>2020年</div>
@@ -45,9 +56,9 @@ const Header: React.FunctionComponent = props => {
         <span className={sc('name')}>收入</span>
       </div>
     </div>
-    <div className={sc('values')}>
+    <div className={sc('values')} onClick={onClick}>
       <div className={sc('left')}>
-        <div className={sc('date')}>01<i>月</i></div>
+        <div className={sc('date')}>01<i>月</i> <span>点我</span></div>
       </div>
       <div className={sc('right', 'cost')}>
         <div className={sc('number')}>29<i>.00</i></div>
@@ -58,12 +69,18 @@ const Header: React.FunctionComponent = props => {
 };
 
 const Home: React.FunctionComponent<Props> = props => {
+  const [visible, setVisible] = useState<boolean>(true);
+  const onOpenDatePicker = () => {
+    console.log('listener header click');
+    setVisible(true);
+  };
   return (
     <div className={sc('page')}>
-      <Header/>
+      <Header onClick={onOpenDatePicker}/>
       <div className={sc('main')}>
         <CostList dataSource={mockData}/>
       </div>
+      <DatePicker visible={visible}/>
     </div>
   );
 };
