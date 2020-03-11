@@ -1,4 +1,5 @@
 @import 'var';
+
 #{component(icon)} {
   width: 1em;
   height: 1em;
@@ -7,5 +8,12 @@
   overflow: hidden;
   &-spin {
     @include spin;
+  }
+  &-background {
+    width: .6rem;
+    line-height:.6rem;
+    background: #dde;
+    border-radius: 50%;
+    text-align: center;
   }
 }

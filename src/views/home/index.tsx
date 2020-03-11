@@ -2,6 +2,7 @@ import * as React from 'react';
 import { createScopedClasses } from 'utils/classnames';
 import { RouteComponentProps } from 'react-router';
 import CostList from './components/costList';
+import { CostItemProps } from './components/costItem';
 
 import './index.scss';
 
@@ -12,7 +13,7 @@ interface Props extends RouteComponentProps {
 
 }
 
-const mockData = [
+const mockData: Array<CostItemProps> = [
   {
     id: '1',
     date: '1583559453236',

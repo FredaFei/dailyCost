@@ -24,7 +24,7 @@ const RecordItem: React.FunctionComponent<Props> = props => {
   const {icon, name, amount} = props.record;
   return <div className={sc('')}>
     <div className={sc('left')}>
-      <Icon name={icon}/>
+      <Icon name={icon} hasBackground={true}/>
     </div>
     <div className={sc('right')}>
       <span className={sc('source')}>{name}</span>

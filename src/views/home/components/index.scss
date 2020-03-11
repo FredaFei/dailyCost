@@ -12,12 +12,19 @@
   }
 
   &-body {
-    padding: 0 .2rem;
+    padding-left: .2rem;
   }
   &-record {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    & + .m-cost-item-record {
+      #{componentWithout(cost-item)} {
+        &-record-right {
+          border-top: 1px solid #ddd;
+        }
+      }
+    }
   }
   &-record-left {
     flex: 0 0 10%;
@@ -27,9 +34,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: .28rem;
-    & + &-record-right {
-      border-top: 1px solid #ddd;
-    }
+    font-size: .26rem;
+    padding: .24rem .2rem .24rem 0;
   }
+
 }
