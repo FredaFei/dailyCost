@@ -1,0 +1,51 @@
+@import 'var';
+
+.m-dailyCell {
+  //color: red;
+}
+
+#{componentWithout(dailyCell)} {
+  width: 25%;
+  flex: 1;
+  padding: .28rem 0;
+  font-size: .32rem;
+  color: $color;
+  text-align: center;
+  border-left: 1px solid #ddd;
+
+  &:first-child {
+    border-left: none;
+  }
+
+  &.yellow {
+    font-size: .36rem;
+    background: yellow;
+  }
+
+  &.gray {
+    font-size: .36rem;
+    //background: #ccc;
+  }
+}
+
+#{componentWithout(dailyPanel)} {
+  &-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    &:last-child{
+      border-bottom: none;
+    }
+  }
+}
+
+#{componentWithout(dailyDisplay)} {
+  line-height: .6rem;
+  padding: 0.06rem .2rem;
+  text-align: right;
+  font-size: .42rem;
+  background: #f2f2f2;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
