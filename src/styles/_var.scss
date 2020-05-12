@@ -36,11 +36,11 @@ $prefix2: 'm';
   animation: spin 1.2s infinite linear;
 }
 
-@mixin component ($name){
-  .#{$prefix}-#{$name}{
-    @content;
-  }
-}
+//@mixin component ($name){
+//  .#{$prefix}-#{$name}{
+//    @content;
+//  }
+//}
 
 @function component($name,$modifier:null){
   @if $modifier == null {
@@ -54,5 +54,16 @@ $prefix2: 'm';
     @return ".#{$prefix2}-#{$name}"
   }@else{
     @return ".#{$prefix2}-#{$name}-#{$modifier}"
+  }
+}
+#{componentWithout(daily-cost)} {
+  &-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    //z-index: 9;
+    background: rgba(0, 0, 0, 0.6);
   }
 }
