@@ -1,12 +1,12 @@
 import * as React from 'react'
-import classes, {createScopedClasses} from '../../utils/classnames'
-// import Icon from '../icon/icon'
-import Date2, {IReadonlyDate} from '../../utils/date'
-import {range} from '../../utils/collection'
+import classes, {createScopedClasses} from 'utils/classnames'
+import Icon from '../icon/index'
+import Date2, {IReadonlyDate} from 'utils/date'
+import {range} from 'utils/collection'
 import {useState} from "react";
 
 const componentName = 'MonthPanel'
-const sc = createScopedClasses(componentName)
+const sc = createScopedClasses('component-monthPanel')
 
 type Panel = 'day' | 'month' | 'year'
 
@@ -37,9 +37,6 @@ const MonthPanel: React.FunctionComponent<Props> = props => {
   const onClickPrevYear = () => {
     setDisplay(display.clone.addYear(-1))
     props.onChangeDisplay!(display.clone)
-    // this.setState((prevState) => ({display: prevState.display.clone.addYear(-1)}), () => {
-    //   this.props.onChangeDisplay!(this.state.display.clone)
-    // });
   }
   const onNavMonthClick = () => {
     props.onChangePanel!('year')
@@ -54,21 +51,21 @@ const MonthPanel: React.FunctionComponent<Props> = props => {
     props.onChangeDisplay!(display.clone)
   }
 
-  // const renderNav = () => {
-  //   return (
-  //     <div className={classes(sc('nav'), 'am-datePicker-nav')}>
-  //       <div className={sc('col')}>
-  //         <Icon name="double-left" onClick={onClickPrevYear}/>
-  //       </div>
-  //       <div className={sc('col')}>
-  //         <span className={sc('year')} onClick={onNavMonthClick}>{display.year}年</span>
-  //       </div>
-  //       <div className={sc('col')}>
-  //         <Icon name="double-right" onClick={onClickNextYear}/>
-  //       </div>
-  //     </div>
-  //   )
-  // }
+  const renderNav = () => {
+    return (
+      <div className={classes(sc('nav'), 'm-datePicker-nav')}>
+        <div className={sc('col')}>
+          <Icon name="double-left" onClick={onClickPrevYear}/>
+        </div>
+        <div className={sc('col')}>
+          <span className={sc('year')} onClick={onNavMonthClick}>{display.year}年</span>
+        </div>
+        <div className={sc('col')}>
+          <Icon name="double-right" onClick={onClickNextYear}/>
+        </div>
+      </div>
+    )
+  }
 
   const renderBody = () => {
     const month = range(0, 3).map(row => (
@@ -87,7 +84,7 @@ const MonthPanel: React.FunctionComponent<Props> = props => {
       </tr>
     ))
     return (
-      <div className={classes(sc('main'), 'am-datePicker-main')}>
+      <div className={classes(sc('main'), 'm-datePicker-main')}>
         <table>
           <tbody>{month}</tbody>
         </table>
@@ -97,7 +94,7 @@ const MonthPanel: React.FunctionComponent<Props> = props => {
 
   return (
     <React.Fragment>
-      {/*{renderNav()}*/}
+      {renderNav()}
       {renderBody()}
     </React.Fragment>
   )

@@ -1,12 +1,12 @@
 import * as React from 'react'
-import classes, {createScopedClasses} from '../../utils/classnames'
-// import Icon from '../icon/icon'
-import Date2, {IReadonlyDate} from '../../utils/date'
-import {range} from '../../utils/collection'
+import classes, {createScopedClasses} from 'utils/classnames'
+import Icon from '../icon/index'
+import Date2, {IReadonlyDate} from 'utils/date'
+import {range} from 'utils/collection'
 import {useState} from "react";
 
 const componentName = 'YearPanel'
-const sc = createScopedClasses(componentName)
+const sc = createScopedClasses('component-yearPanel')
 
 type Panel = 'day' | 'month' | 'year'
 
@@ -38,26 +38,27 @@ const YearPanel: React.FunctionComponent<Props> = props => {
   const onClickNextYear = () => {
     setDisplay(display.clone.addYear(+10))
   }
-  // const renderNav = () => {
-  //   return (
-  //     <div className={classes(sc('nav'), 'am-datePicker-nav')}>
-  //       <div className={sc('col')}>
-  //         <Icon name="double-left" onClick={onClickPrevYear}/>
-  //       </div>
-  //       <div className={sc('col')}>
-  //                   <span className={sc('year')}
-  //                         onClick={onClickNavYear}>{visibleYears()[1]}-{visibleYears()[visibleYears().length - 2]}</span>
-  //       </div>
-  //       <div className={sc('col')}>
-  //         <Icon name="double-right" onClick={onClickNextYear}/>
-  //       </div>
-  //     </div>
-  //   )
-  // }
+
+  const renderNav = () => {
+    return (
+      <div className={classes(sc('nav'), 'm-datePicker-nav')}>
+        <div className={sc('col')}>
+          <Icon name="double-left" onClick={onClickPrevYear}/>
+        </div>
+        <div className={sc('col')}>
+                    <span className={sc('year')}
+                          onClick={onClickNavYear}>{visibleYears()[1]}-{visibleYears()[visibleYears().length - 2]}</span>
+        </div>
+        <div className={sc('col')}>
+          <Icon name="double-right" onClick={onClickNextYear}/>
+        </div>
+      </div>
+    )
+  }
 
   const renderBody = () => {
     return (
-      <div className={classes(sc('main'), 'am-datePicker-main')}>
+      <div className={classes(sc('main'), 'm-datePicker-main')}>
         <table>
           {renderYears()}
         </table>
@@ -92,7 +93,7 @@ const YearPanel: React.FunctionComponent<Props> = props => {
 
   return (
     <React.Fragment>
-      {/*{renderNav()}*/}
+      {renderNav()}
       {renderBody()}
     </React.Fragment>
   )
