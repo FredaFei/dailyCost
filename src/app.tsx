@@ -10,7 +10,7 @@ const sc = createScopedClasses('daily-cost');
 
 const dataSource = [
   {text: '明细', icon: 'left', path: '/'},
-  {text: '记账', icon: 'right', path: '/product'},
+  {text: '记账', icon: 'right', path: '/billingCenter'},
   {text: '我的', icon: 'user', path: '/member'}
 ];
 
