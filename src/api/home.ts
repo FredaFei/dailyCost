@@ -1,6 +1,6 @@
 import http from '../utils/http'
 
-export const getCostList = (params: { type: 0 | 1 }) => {
+export const getCostList = (params: { type: 0 | 1 })=> {
   return http({
     url: '/dailyCost/costList',
     params

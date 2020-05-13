@@ -42,12 +42,11 @@ const Header: React.FunctionComponent<HeaderProps> = props => {
   </div>;
 };
 
-
 const Home: React.FunctionComponent<Props> = props => {
   const [costList,setCostList] = useState([])
   useEffect(() => {
-    getCostList({type: 0}).then(result => {
-      setCostList(result.data.list)
+    getCostList({type: 0}).then(res => {
+      setCostList(res.result)
     }, err => {
       console.log(err);
     })
