@@ -18,7 +18,7 @@ function qs(data:any) {
 //https://test.xx.cn
 //https://m.xx.com
 const axiosMiddleware = axios.create({
-  baseURL: process.env.NODE_ENV === 'development' ? 'https://test.xx.cn' : 'https://m.xx.com',
+  baseURL: process.env.NODE_ENV === 'development' ? 'http://rap2.taobao.org:38080/app/mock/254030' : '',
   timeout: 10000
 })
 axiosMiddleware.interceptors.request.use(

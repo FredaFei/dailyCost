@@ -1,8 +1,14 @@
 import http from '../utils/http'
 
-export const getSlides = () => {
+export const getCostList = (params: { type: 0 | 1 }) => {
   return http({
-    url: '/slides',
-    method: 'get'
+    url: '/dailyCost/costList',
+    params
+  })
+};
+export const getDetail = (params: { id: number }) => {
+  return http({
+    url: '/dailyCost/detail',
+    params
   })
 };

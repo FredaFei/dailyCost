@@ -1,38 +1,16 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { createScopedClasses } from 'utils/classnames';
 import { RouteComponentProps } from 'react-router';
 import CostList from './components/costList';
-import { CostItemProps } from './components/costItem';
 
 import './index.scss';
+import { getCostList } from '@/api/home';
 
 const componentName = 'Home';
 const sc = createScopedClasses(componentName);
 
 interface Props extends RouteComponentProps {}
-
-const mockData: Array<CostItemProps> = [
-  {
-    id: '1',
-    date: '1583559453236',
-    records: [
-      { id: 'r-1', icon: 'left', name: '交通', amount: '7', amountType: '-1', date: '1583559453216', note: '' },
-      { id: 'r-2', icon: 'left', name: '化妆品', amount: '170', amountType: '-1', date: '1583559443216', note: '' },
-      { id: 'r-3', icon: 'left', name: '零食', amount: '57', amountType: '-1', date: '1583559413216', note: '' },
-      { id: 'r-4', icon: 'left', name: '服饰', amount: '119', amountType: '-1', date: '1583559653216', note: '' },
-      { id: 'r-5', icon: 'left', name: '鞋子', amount: '99', amountType: '-1', date: '1583559493216', note: '' },
-    ]
-  },
-  {
-    id: '2',
-    date: '1583554453236',
-    records: [
-      { id: 'r-1', icon: 'left', name: '交通', amount: '7', amountType: '-1', date: '1583559453216', note: '' },
-      { id: 'r-2', icon: 'left', name: '化妆品', amount: '170', amountType: '-1', date: '1583559443216', note: '' },
-      { id: 'r-3', icon: 'left', name: '零食', amount: '57', amountType: '-1', date: '1583559413216', note: '' },
-    ]
-  }
-];
 
 interface HeaderProps {
   onClick?: () => void
@@ -66,11 +44,19 @@ const Header: React.FunctionComponent<HeaderProps> = props => {
 
 
 const Home: React.FunctionComponent<Props> = props => {
+  const [costList,setCostList] = useState([])
+  useEffect(() => {
+    getCostList({type: 0}).then(result => {
+      setCostList(result.data.list)
+    }, err => {
+      console.log(err);
+    })
+  }, [])
   return (
     <div className={sc('page')}>
-      <Header />
+      <Header/>
       <div className={sc('main')}>
-        <CostList dataSource={mockData}/>
+        <CostList dataSource={costList}/>
       </div>
     </div>
   );
