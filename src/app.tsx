@@ -15,7 +15,7 @@ const dataSource = [
 ];
 
 const App = () => {
-  let {pathname} = useLocation();
+  let { pathname} = useLocation();
   useEffect(() => {
     rem()
   });
