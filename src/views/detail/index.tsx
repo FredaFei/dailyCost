@@ -11,7 +11,6 @@ interface Props extends RouteComponentProps {}
 
 /**
  * todo
- * 1. api mock
  * 2. detail action edit/delete
  * 3. tags add/edit/delete
  * 4. record edit
