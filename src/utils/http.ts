@@ -12,6 +12,7 @@ interface apIResponse<T = any> {
   result: T
 }
 
+// @ts-ignore
 const http = (options: AxiosRequestConfig = {}): Promise<apIResponse<T>> => {
   let { url, method = 'get', ...rest } = options
   return new Promise((resolve, reject) => {
