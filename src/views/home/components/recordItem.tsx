@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { createScopedClasses } from 'utils/classnames';
+import { Link } from 'react-router-dom'
 import Icon from '@/components/icon';
 
 import './index.scss';
@@ -11,7 +12,7 @@ export interface RecordItemProps {
   icon: string
   name: string
   amount: string | number
-  amountType: '-1' | '1',
+  amountType: 0 | 1
   date: string
   note: string
 }
@@ -21,8 +22,8 @@ interface Props {
 }
 
 const RecordItem: React.FunctionComponent<Props> = props => {
-  const {icon, name, amount} = props.record;
-  return <div className={sc('')}>
+  const { icon, name, amount, id } = props.record;
+  return <Link to={`/detail?id=${id}`} className={sc('')}>
     <div className={sc('left')}>
       <Icon name={icon} hasBackground={true}/>
     </div>
@@ -30,6 +31,6 @@ const RecordItem: React.FunctionComponent<Props> = props => {
       <span className={sc('source')}>{name}</span>
       <div className={sc('cost')}>{amount}</div>
     </div>
-  </div>;
+  </Link>;
 };
 export default RecordItem;

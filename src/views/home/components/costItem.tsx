@@ -17,7 +17,7 @@ interface Props {
 }
 
 const CostItem: React.FunctionComponent<Props> = props => {
-  const {date,records} = props.item
+  const { date, records } = props.item
   return (
     <div className={sc('')}>
       <div className={sc('top')}>

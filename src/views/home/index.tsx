@@ -1,16 +1,13 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useReducer } from 'react';
 import { createScopedClasses } from 'utils/classnames';
-import { RouteComponentProps } from 'react-router';
 import CostList from './components/costList';
-
+import AppContext from '../../context';
+import CostListReducer from '@/reducers/costListReducer'
 import './index.scss';
-import { getCostList } from '@/api/home';
 
 const componentName = 'Home';
 const sc = createScopedClasses(componentName);
-
-interface Props extends RouteComponentProps {}
 
 interface HeaderProps {
   onClick?: () => void
@@ -42,22 +39,41 @@ const Header: React.FunctionComponent<HeaderProps> = props => {
   </div>;
 };
 
-const Home: React.FunctionComponent<Props> = props => {
-  const [costList,setCostList] = useState([])
-  useEffect(() => {
-    getCostList({type: 0}).then(res => {
-      setCostList(res.result)
-    }, err => {
-      console.log(err);
-    })
-  }, [])
+function reducer(state: Store, action: Action) {
+  const temp = { ...CostListReducer }
+  const fn = temp[action.type]
+  if (fn) {
+    return fn(state, action)
+  } else {
+    throw Error(`error action type: ${action.type}`)
+  }
+
+}
+
+interface Store {
+  costList: any[]
+}
+
+interface Action {
+  type: string
+  [k: string]: any
+}
+
+const store: Store = {
+  costList: []
+}
+const Home = () => {
+  const [state, dispatch] = useReducer(reducer, store)
+  const api = { state, dispatch }
   return (
-    <div className={sc('page')}>
-      <Header/>
-      <div className={sc('main')}>
-        <CostList dataSource={costList}/>
+    <AppContext.Provider value={api}>
+      <div className={sc('page')}>
+        <Header/>
+        <div className={sc('main')}>
+          <CostList />
+        </div>
       </div>
-    </div>
+    </AppContext.Provider>
   );
 };
 export default Home;
