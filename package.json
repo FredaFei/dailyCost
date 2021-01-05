@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@loadable/component": "^5.10.3",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "big.js": "^5.2.2",
     "js-cookie": "^2.2.1",
     "react": "^16.10.2",
